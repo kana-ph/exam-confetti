@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ExamConfetti.Model
 {
@@ -26,7 +27,7 @@ namespace ExamConfetti.Model
 
         public static Exam Load(string fileName)
         {
-
+            return null;
         }
 
         public void Save()
@@ -36,7 +37,21 @@ namespace ExamConfetti.Model
 
         public List<ExamItem> ShuffleItems()
         {
+            List<ExamItem> shuffledItems = new List<ExamItem>(items);
 
+            Random rng = new Random();
+            int n = shuffledItems.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+
+                ExamItem examItem = shuffledItems[k];
+                shuffledItems[k] = shuffledItems[n];
+                shuffledItems[n] = examItem;
+            }
+
+            return shuffledItems;
         }
 	}
 }
