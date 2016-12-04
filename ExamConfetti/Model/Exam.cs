@@ -23,5 +23,20 @@ namespace ExamConfetti.Model
 		public string Footer { set; get; }
 		public List<ImageFile> Images { private set; get; }
 		public List<ExamItem> Items { private set; get; }
+
+        public static Exam Load(string fileName)
+        {
+
+        }
+
+        public void Save()
+        {
+
+        }
+
+        public List<ExamItem> ShuffleItems()
+        {
+
+        }
 	}
 }
